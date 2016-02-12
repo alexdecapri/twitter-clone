@@ -28,6 +28,16 @@ $(document).ready(function() {
 		if (num <= 10) {
 			$("#char-count").css("color", "red");
 		}
+		if (num > 10) {
+			$("#char-count").css("color", "#999");
+		}
+
+		if (num < 0) {
+			$(".button").css("display", "none");
+		}
+		else {
+			$(".button").css("display", "inline-block");
+		}
 		$("#char-count").text(num);
 	});
 
