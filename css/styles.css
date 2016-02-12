@@ -40,8 +40,9 @@ body {
 	border-color: #057ed0;
 	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
 	box-shadow: inset 0 1px 0 rgba(255,255,255,.1);;
-	display: inline-block;
-	padding: 5px 10px;
+	display: none; 
+/*	display: inline-block;
+*/	padding: 5px 10px;
 	font-size: 13px;
 	font-weight: bold;
 	line-height: 18px;
@@ -129,6 +130,9 @@ body {
 	}
 		#tweet-controls {
 			text-align: right;
+			float: right;
+			padding-bottom: 10px;
+			display: none;
 		}
 			#tweet-controls div {
 				display: inline-block;
@@ -138,6 +142,7 @@ body {
 				color: #999;
 				text-shadow: 0 1px 1px rgba(255,255,255,.75);
 			}
+
 
 /* TWEET */
 .tweet {
