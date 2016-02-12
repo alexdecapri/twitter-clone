@@ -41,6 +41,10 @@ $(document).ready(function() {
 		$("#char-count").text(num);
 	});
 
+	$(".button").on("click", function() {
+		alert("hello");
+	});
+
 
 
 
