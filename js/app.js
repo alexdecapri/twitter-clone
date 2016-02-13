@@ -1,44 +1,32 @@
 $(document).ready(function() {
 
-	$(".tweet-compose:first-child").on("click", function() {
-		$(this).css("height", "5em");
-		$("#tweet-controls").css("display", "inline-block");
-		$(".button").css("display", "inline-block");
+	$(".tweet-compose").focus("click", function() {
+		$(this).addClass("tweet-write");
+		$(this).parent().children().css("display", "inline-block"); //tweet-compose doesn't have any children
+		$(this).parent().children().children().css("display", "inline-block"); //button is child of tweet-controls
 	});
 
-
-	$(".tweet-compose:first-child").blur(function() {
-		$(this).css("height", "2.5em");
+	$(".tweet-compose").blur("click", function() {
+		$(this).removeClass("tweet-write");
 		$("#tweet-controls").css("display", "none");
-		$(".button").css("display", "none");
+		$("#tweet-submit").css("display", "none");
 	});
 
 
-	$(".tweet-compose:first-child").keydown(function() {
-		var text = $("#char-count").text();
-		var num = parseInt(text);
-		if (event.keyCode === 8) {
-			if (num !== 140) {
-				++num;
+	$(".tweet-compose").keyup(function() {
+		var upper_limit = 140;
+		var text_length = $(".tweet-compose").val().length;
+		var new_count = upper_limit - text_length;
+		$("#char-count").text(new_count);
+		if (new_count <= 10) {
+			$("#char-count").css("color", "red");
+			if (new_count < 0) {
+				$("#tweet-submit").attr("disabled", "true");
 			}
 		}
-		else {
-			--num;
+		else if (new_count > 10) {
+			$("#char-count").css("color", "gray");
 		}
-		if (num <= 10) {
-			$("#char-count").css("color", "red");
-		}
-		if (num > 10) {
-			$("#char-count").css("color", "#999");
-		}
-
-		if (num < 0) {
-			$(".button").css("display", "none");
-		}
-		else {
-			$(".button").css("display", "inline-block");
-		}
-		$("#char-count").text(num);
 	});
 
 	$(".button").on("click", function() {

@@ -19,6 +19,7 @@ body {
 	font-family: "Helvetica Neue",Arial,sans-serif;
 }
 
+
 /* GLOBAL ELEMENTS */
 .avatar {
 	width: 32px;
@@ -128,6 +129,11 @@ body {
 		margin-bottom: 1em;
 		box-sizing: border-box;
 	}
+		/*CLASSES I CREATED FOR TOGGLECLASS IN JS*/
+		.tweet-write {
+			height: 5em;
+		}
+		
 		#tweet-controls {
 			text-align: right;
 			float: right;
