@@ -1,16 +1,17 @@
 $(document).ready(function() {
 
-	$(".tweet-compose").focus("click", function() {
+	$(".tweet-compose").on("click", function() {
 		$(this).addClass("tweet-write");
 		$(this).parent().children().css("display", "inline-block"); //tweet-compose doesn't have any children
 		$(this).parent().children().children().css("display", "inline-block"); //button is child of tweet-controls
 	});
 
-	$(".tweet-compose").blur("click", function() {
+	$(".tweet-compose").mouseleave("click", function() {
 		$(this).removeClass("tweet-write");
 		$("#tweet-controls").css("display", "none");
 		$("#tweet-submit").css("display", "none");
 	});
+
 
 
 	$(".tweet-compose").keyup(function() {
@@ -42,8 +43,10 @@ $(document).ready(function() {
 	});
 
 	$("#tweet-submit").on("click", function() {
-		alert("hello");
+		var tweet_msg = $(".tweet-compose").val();
+		$("#main").prependTo(tweet_msg);
 	});
+
 
 
 
