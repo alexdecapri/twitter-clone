@@ -49,7 +49,7 @@ $(document).ready(function() {
 
 	$('#tweet-submit').click(function() {
         var tweetWords = $('.tweet-compose').val();
-        var newTweet = $('.tweet').clone();
+        var newTweet = $('.tweet:first-child').clone(); //have to use first-child or clones existing three tweets and makes my tweet go 3 times
         // var myName = $('#myName').html();  ID doesn't exist
         // var picture = $('#twitterpic').attr('src');   ID doesn't exist
 
@@ -58,10 +58,11 @@ $(document).ready(function() {
         newTweet.find('.username').html("@alexdecapri");
         newTweet.find('.avatar').attr('src', "img/alagoon.jpg");
 
-        newTweet.prependTo('#stream');
-        //$('#stream').prepend($(newTweet));
-        $('textarea').val('');
-        $('#char-count').text("140");
+   
+        $('#stream').prepend($(newTweet));
+        $('textarea').val(''); //returns blank tweet compose to start new tweet
+        $('#char-count').text("140"); //resets 140 counter after tweet submitted
+
     });
 
     $("li").hide();
