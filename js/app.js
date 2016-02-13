@@ -6,10 +6,15 @@ $(document).ready(function() {
 		$(this).parent().children().children().css("display", "inline-block"); //button is child of tweet-controls
 	});
 
-	$("#dashboard").mouseleave("click", function() {
-		$(".tweet-compose").removeClass("tweet-write");
-		$("#tweet-controls").css("display", "none");
-		$("#tweet-submit").css("display", "none");
+	$("#dashboard").mouseleave(function() {
+		$(this).find(".tweet-compose").removeClass("tweet-write");
+		$(this).find("#tweet-controls").css("display", "none");
+		$(this).find("#tweet-submit").css("display", "none");
+	});
+
+	$("#main").mouseleave(function() {
+		$(this).find(".tweet-compose").removeClass("tweet-write");
+
 	});
 
 
@@ -45,8 +50,8 @@ $(document).ready(function() {
 	$('#tweet-submit').click(function() {
         var tweetWords = $('.tweet-compose').val();
         var newTweet = $('.tweet').clone();
-        var myName = $('#myName').html();
-        var picture = $('#twitterpic').attr('src');
+        // var myName = $('#myName').html();  ID doesn't exist
+        // var picture = $('#twitterpic').attr('src');   ID doesn't exist
 
         newTweet.find('.tweet-text').html(tweetWords);
         newTweet.find('.fullname').html("Alex DeCapri");
@@ -58,5 +63,32 @@ $(document).ready(function() {
         $('textarea').val('');
         $('#char-count').text("140");
     });
+
+    $("li").hide();
+    $("div.stats .retweets").hide();
+    $("div.stats .favorites").hide();
+	$("div.stats .users-interact").hide();
+	$("div.stats .time").hide();
+
+
+
+    $(".tweet").hover(function() {
+    	$(this).find("li").css("display", "inline-block");
+    });
+
+    $(".tweet").mouseleave(function() {
+    	$(this).find("li").css("display", "none");
+    	$(this).find(".retweets").css("display", "none");
+	    $(this).find(".favorites").css("display", "none");
+		$(this).find(".users-interact").css("display", "none");
+		$(this).find(".time").css("display", "none");
+    });
+
+    $(".tweet").click(function() {
+    	$(this).find(".retweets").css("display", "inline-block");
+	    $(this).find(".favorites").css("display", "inline-block");
+		$(this).find(".users-interact").css("display", "inline-block");
+		$(this).find(".time").css("display", "block");
+    })
 
 });
