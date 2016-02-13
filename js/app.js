@@ -89,6 +89,6 @@ $(document).ready(function() {
 	    $(this).find(".favorites").css("display", "inline-block");
 		$(this).find(".users-interact").css("display", "inline-block");
 		$(this).find(".time").css("display", "block");
-    })
+    });
 
 });
