@@ -42,27 +42,29 @@ $(document).ready(function() {
 		}
 	});
 
-	$("#tweet-submit").on("click", function() {
-		/*var newTweetData = {
-			avatarURL: $("#profile-summary").find("img").attr("src"),
-			fullName: $("#profile-summary").find("p").text(),
-			handle: "Alex DeCapri",
-			text: $("#dashboard").find("textarea.tweet-compose").val()
-		};*/
+		$('#tweet-submit').click(function() {
+	        var tweetWords = $('.tweet-compose').val();
+	        var newTweet = $('.tweet').clone().eq(0);
+	        //learn more about eq
+	        var myName = $('#myName').html();
+	        var picture = $('#twitterpic').attr('src');
 
+	        newTweet.find('.tweet-text').html(tweetWords);
+	        newTweet.find('.fullname').html("Alex DeCapri");
+	        newTweet.find('.username').html("@alexdecapri");
+	        newTweet.find('.avatar').attr('src', "img/alagoon.jpg");
 
-		//clone method???
-		var newTweet = $($(".tweet")[0]).clone();
-		
+	        newTweet.prependTo('#stream');
+	        //$('#stream').prepend($(newTweet));
+	        $('textarea').val('');
+	        $('#char-count').text("140");
+	    });
 
-
-		//prepend
 	});
+   	    
+
 
 	//not anywhere close to right
 
 
 
-
-
-});
