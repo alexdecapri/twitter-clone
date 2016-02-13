@@ -32,12 +32,18 @@ $(document).ready(function() {
 
 		else if (new_count > 10) {
 			$("#char-count").css("color", "gray");
+			if (new_count === 140) {
+				$("#tweet-submit").attr("disabled", "true");
+			}
+			else if (new_count !== 140) {
+				$("#tweet-submit").removeAttr("disabled");
+			}
 		}
 	});
 
-	// $(".button").on("click", function() {
-	// 	alert("hello");
-	// });
+	$("#tweet-submit").on("click", function() {
+		alert("hello");
+	});
 
 
 
