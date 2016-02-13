@@ -42,29 +42,21 @@ $(document).ready(function() {
 		}
 	});
 
-		$('#tweet-submit').click(function() {
-	        var tweetWords = $('.tweet-compose').val();
-	        var newTweet = $('.tweet').clone().eq(0);
-	        //learn more about eq
-	        var myName = $('#myName').html();
-	        var picture = $('#twitterpic').attr('src');
+	$('#tweet-submit').click(function() {
+        var tweetWords = $('.tweet-compose').val();
+        var newTweet = $('.tweet').clone();
+        var myName = $('#myName').html();
+        var picture = $('#twitterpic').attr('src');
 
-	        newTweet.find('.tweet-text').html(tweetWords);
-	        newTweet.find('.fullname').html("Alex DeCapri");
-	        newTweet.find('.username').html("@alexdecapri");
-	        newTweet.find('.avatar').attr('src', "img/alagoon.jpg");
+        newTweet.find('.tweet-text').html(tweetWords);
+        newTweet.find('.fullname').html("Alex DeCapri");
+        newTweet.find('.username').html("@alexdecapri");
+        newTweet.find('.avatar').attr('src', "img/alagoon.jpg");
 
-	        newTweet.prependTo('#stream');
-	        //$('#stream').prepend($(newTweet));
-	        $('textarea').val('');
-	        $('#char-count').text("140");
-	    });
+        newTweet.prependTo('#stream');
+        //$('#stream').prepend($(newTweet));
+        $('textarea').val('');
+        $('#char-count').text("140");
+    });
 
-	});
-   	    
-
-
-	//not anywhere close to right
-
-
-
+});
