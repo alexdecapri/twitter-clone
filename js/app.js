@@ -43,8 +43,20 @@ $(document).ready(function() {
 	});
 
 	$("#tweet-submit").on("click", function() {
-		var tweet_msg = $(".tweet-compose").val();
-		tweet_msg.prependTo($("#stream"));
+		/*var newTweetData = {
+			avatarURL: $("#profile-summary").find("img").attr("src"),
+			fullName: $("#profile-summary").find("p").text(),
+			handle: "Alex DeCapri",
+			text: $("#dashboard").find("textarea.tweet-compose").val()
+		};*/
+
+
+		//clone method???
+		var newTweet = $($(".tweet")[0]).clone();
+		
+
+
+		//prepend
 	});
 
 	//not anywhere close to right
