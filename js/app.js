@@ -1,3 +1,5 @@
+//fix initial 140 count tweet submission problem
+
 $(document).ready(function() {
 
 	$(".tweet-compose").on("click", function() {
