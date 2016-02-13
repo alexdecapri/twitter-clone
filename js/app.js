@@ -18,20 +18,26 @@ $(document).ready(function() {
 		var text_length = $(".tweet-compose").val().length;
 		var new_count = upper_limit - text_length;
 		$("#char-count").text(new_count);
+
 		if (new_count <= 10) {
 			$("#char-count").css("color", "red");
 			if (new_count < 0) {
 				$("#tweet-submit").attr("disabled", "true");
 			}
+			else if (new_count >= 0) {
+				$("#tweet-submit").removeAttr("disabled");
+			}
+			//works if you don't copy and paste...
 		}
+
 		else if (new_count > 10) {
 			$("#char-count").css("color", "gray");
 		}
 	});
 
-	$(".button").on("click", function() {
-		alert("hello");
-	});
+	// $(".button").on("click", function() {
+	// 	alert("hello");
+	// });
 
 
 
