@@ -6,8 +6,8 @@ $(document).ready(function() {
 		$(this).parent().children().children().css("display", "inline-block"); //button is child of tweet-controls
 	});
 
-	$(".tweet-compose").mouseleave("click", function() {
-		$(this).removeClass("tweet-write");
+	$("#dashboard").mouseleave("click", function() {
+		$(".tweet-compose").removeClass("tweet-write");
 		$("#tweet-controls").css("display", "none");
 		$("#tweet-submit").css("display", "none");
 	});
@@ -44,8 +44,10 @@ $(document).ready(function() {
 
 	$("#tweet-submit").on("click", function() {
 		var tweet_msg = $(".tweet-compose").val();
-		$("#main").prependTo(tweet_msg);
+		tweet_msg.prependTo($("#stream"));
 	});
+
+	//not anywhere close to right
 
 
 
